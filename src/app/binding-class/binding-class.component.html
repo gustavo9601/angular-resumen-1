@@ -1,0 +1,42 @@
+<h2>[class.claseCSS]="condicion"</h2>
+<p [class.hidden]="toggle">Mostrar/Ocultar texto</p>
+<button (click)="toggle = !toggle;">Toggle</button>
+
+
+<h1>Style Binding</h1>
+<h2>[style.propiedadCss]="valor de propiedad"</h2>
+<!--style.font-size.%   // cambiara propuiedad size, y el valor recibido sera en %-->
+<p [style.font-size.%]="sizeText"
+   [style.color]="color">Texto cambia de color</p>
+<br>
+
+<label for="sizeText">Cambia tamaño texto</label>
+<input type="number" [(ngModel)]="sizeText" id="sizeText" name="sizeText" min="70" max="500">
+
+<button type="button" (click)="color = 'green'">Color Verde</button>
+<button type="button" (click)="color = 'blue'">Color Azul</button>
+<button type="button" (click)="color = 'black'">Color Negro</button>
+
+
+<h1>Directiva ngClass</h1>
+<h2>[ngClass]="variable | clases a ejecutar si se cumple una condicion"</h2>
+<input type="text" name="nameTest" [(ngModel)]="nameTest">
+<!--
+[ngClass]="recibe un objeto con las clases a aplicar si se cumple cierta condicion"   separadas por ,
+
+{'clase': condicion si se cumple aplica}
+
+| uppercase   // pipe que permite dejar en maysucula
+slice:posiscion inicial:posicion final   / /devolvera la parte del string inicio - final
+-->
+<p
+  [ngClass]="{'red': nameTest.length > 0 &&  nameTest.length <=3, 'blue': nameTest.length > 3 && nameTest.length <= 6 , 'green': nameTest.length > 6}">
+  {{nameTest | uppercase | slice:0:7}}</p>
+
+<h1>Directiva ngStyle</h1>
+<h2>[ngStyle]="variable | estilos si cumple una funcion"</h2>
+<!--
+[ngStyle]="{'estilo' : valor | funcion retorna valor}"
+-->
+<p [ngStyle]="{'font-size': sizeText + 'px', 'color' : (sizeText > 10) ? 'green' : 'red'}">Texto variable</p>
+

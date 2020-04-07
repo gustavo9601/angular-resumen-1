@@ -1,0 +1,20 @@
+.hidden{
+  opacity: 0;
+}
+
+.show{
+  opacity: 1;
+}
+
+
+.red{
+  color:red;
+}
+
+.blue{
+  color:blue;
+}
+
+.green{
+  color:green;
+}

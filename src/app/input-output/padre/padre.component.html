@@ -1,0 +1,10 @@
+<h2>Llamando el componente hijo app-hijo</h2>
+
+<!--
+
+[] input
+()  output
+
+-->
+<app-hijo [nameHijo]="'Gustavo Marquez'"   (namePadre)="recibeNombrePadre($event)" ></app-hijo>
+<p *ngIf="namePadre"> El nombre al padre enviado desde el hijo es {{namePadre}}</p>
