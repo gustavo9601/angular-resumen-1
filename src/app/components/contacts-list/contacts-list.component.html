@@ -1,0 +1,7 @@
+
+<h2>ScrollTop detectado = {{scrollTopNumber}}</h2>
+<app-contact *ngFor="let contact of contacts"
+             [appRecuadroTouch]="contact.id === selectedContactId"
+             [contact]="contact"
+             [expanded]="contact.id === selectedContactId"
+             (clickedId)="onContactSelected($event)"></app-contact>

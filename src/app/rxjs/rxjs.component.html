@@ -1,0 +1,20 @@
+<h1>Rxjs</h1>
+<h2>Ejemplo Uno</h2>
+<p>{{ejemplo1}}</p>
+
+<h2>Ejemplo Dos</h2>
+<p>{{ejemplo2}}</p>
+
+<h2>Ejemplo Tres</h2>
+<p>{{ejemplo3}}</p>
+
+<h2>Ejemplo Cuatro Operador Map</h2>
+<p>{{ejemplo4OperadorMap | json}}</p>
+
+<h2>Ejemplo Cinco Operador Filter </h2>
+<p>Solo retorna valores  cuando el offsetX es <= 400</p>
+<p>{{ejemplo5OperadorFilter}}</p>
+
+<h2>Ejemplo Siete Operador Debounce </h2>
+<input type="text" #searchInput="ngModel" name="searchInput" [(ngModel)]="textInput" >
+<p>{{searchInput.value}}</p>

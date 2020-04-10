@@ -6,6 +6,12 @@ import { PadreComponent } from './input-output/padre/padre.component';
 import { HijoComponent } from './input-output/hijo/hijo.component';
 import { BindingClassComponent } from './binding-class/binding-class.component';
 import {FormsModule} from "@angular/forms";
+import { ContactsListComponent } from './components/contacts-list/contacts-list.component';
+import { ContactComponent } from './components/contact/contact.component';
+import { ContactDetailComponent } from './components/contact-detail/contact-detail.component';
+import { RecuadroTouchDirective } from './directives/recuadro-touch.directive';
+import { ComponenteNgContentComponent } from './components/componente-ng-content/componente-ng-content.component';
+import { RxjsComponent } from './rxjs/rxjs.component';
 
 @NgModule({
   declarations: [
@@ -13,7 +19,13 @@ import {FormsModule} from "@angular/forms";
     AppComponent,
     PadreComponent,
     HijoComponent,
-    BindingClassComponent
+    BindingClassComponent,
+    ContactsListComponent,
+    ContactComponent,
+    ContactDetailComponent,
+    RecuadroTouchDirective,
+    ComponenteNgContentComponent,
+    RxjsComponent
   ],
   imports: [
     //Modulos
