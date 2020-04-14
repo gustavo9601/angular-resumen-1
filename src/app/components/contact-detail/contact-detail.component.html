@@ -1,1 +1,13 @@
-<p>contact-detail works!</p>
+<ng-container *ngIf="contact">
+  <h2>Contacto con ID {{contact.id}}</h2>
+  <p>Nombre: {{contact.name}}</p>
+  <img [src]="contact.picture" alt="image" width="200px">
+  <ng-container *ngIf="contact.phones != null">
+    <p *ngFor="let phone of contact.phones">
+      {{phone.type}} - {{phone.number}}
+    </p>
+  </ng-container>
+</ng-container>
+
+
+

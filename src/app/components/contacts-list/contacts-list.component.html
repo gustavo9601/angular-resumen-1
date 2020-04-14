@@ -1,5 +1,8 @@
 
 <h2>ScrollTop detectado = {{scrollTopNumber}}</h2>
+
+<h4 style="color: red" *ngIf="errorParam">{{errorParam}}</h4>
+
 <app-contact *ngFor="let contact of contacts"
              [appRecuadroTouch]="contact.id === selectedContactId"
              [contact]="contact"

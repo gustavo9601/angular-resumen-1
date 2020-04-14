@@ -1,0 +1,15 @@
+
+
+<!--
+#vienePathHija="outlet"   // le ponemos nombre a el contenido de las rutas hijas
+vienePathHija.isActivated   // retorna si viene ruta hija un boolean
+
+-->
+<ng-container *ngIf="!vienePathHija.isActivated">
+  <p>Valla a la ruta Hija ya que en el padre no hay nada</p>
+  <p>
+    <a [routerLink]="['/rutaPadre/rutaHija']">Ir Hija</a>
+  </p>
+</ng-container>
+
+<router-outlet  #vienePathHija="outlet"></router-outlet>

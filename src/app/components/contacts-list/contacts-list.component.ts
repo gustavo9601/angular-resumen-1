@@ -1,8 +1,11 @@
 import {Component, OnInit, HostListener} from '@angular/core';
+import {ActivatedRoute, ParamMap} from "@angular/router";
 
 //Models
 import {Contact, PhoneType} from "src/app/models/contact.model";
 import {ContactService} from "src/app/services/contact.service";
+import {map} from "rxjs/operators";
+import {TitleService} from "../../services/title.service";
 
 
 @Component({
@@ -30,18 +33,35 @@ export class ContactsListComponent implements OnInit {
   * */
   public contacts: Contact[] = [];
   public selectedContactId: number = null;
-  public scrollTopNumber:any = 0;
+  public scrollTopNumber: any = 0;
+  public errorParam: string = null;
 
-  constructor(public _contactService: ContactService) {
+  constructor(public _contactService: ContactService,
+              private activateRouted: ActivatedRoute) {
 
   }
 
   ngOnInit(): void {
 
+    this.contacts = this._contactService.contacts;
 
-    this.contacts = this._contactService.getContacts();
+    // queryParamMap  => retorna un observable que trae los valores
+    this.activateRouted.queryParamMap
+      .pipe(
+        map((parametros: ParamMap) => {
+          return parametros.get('error')
+        })
+      )
+      .subscribe(
+        (error: string) => {
+          console.log("Viene parametros en la url con ?", error)
+          if (error) {
+            this.errorParam = error;
+          }
 
-    console.log(this.contacts);
+        }
+      )
+
   }
 
   onContactSelected(id: number) {
@@ -57,7 +77,7 @@ export class ContactsListComponent implements OnInit {
   * @HostListener('nombre_evento_js', ['parametros_a_recibir'])
   * */
   @HostListener('window:scroll', ['$event'])
-  eventFunctionScroll($event:any){
+  eventFunctionScroll($event: any) {
 
     //$event.srcElement.children[0].scrollTop  accedemos dentro de la estructura para obtener el valor
     //scrollTop => permite obtener el recorrido de la pagina desde el inicio

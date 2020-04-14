@@ -1,0 +1,16 @@
+<hr>
+<h1>{{_titleService.title}}</h1>
+<ul>
+  <li routerLinkActive="active-link" *ngIf="!_loginService.isLogged()"><a [routerLink]="['/login']">Login</a></li>
+  <li routerLinkActive="active-link" *ngIf="_loginService.isLogged()"><a [routerLink]="['/logout']">Logout</a></li>
+  <li routerLinkActive="active-link"><a [routerLink]="['/contacts']">Contactos</a></li>
+  <li routerLinkActive="active-link"><a [routerLink]="['/contact-detail']">Detalle Contacto</a></li>
+  <li routerLinkActive="active-link"><a [routerLink]="['/repaso']">Repaso</a></li>
+  <li routerLinkActive="active-link"><a [routerLink]="['/rxjs']">Rxjs</a></li>
+</ul>
+
+<ul>
+  <li><a [routerLink]="['/rutaPadre']">Ruta Padre</a></li>
+  <li><a [routerLink]="['/rutaPadre/rutaHija']">Ruta Hija</a></li>
+</ul>
+<hr>
